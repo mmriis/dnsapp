@@ -53,7 +53,7 @@ In your Ruby script you can now.
 
 In order to run the test suite you have to have a DNSApp.net account (a trial account is not sufficient).
 
-You must create the file +spec/credentials.yml+.
+You must create the file <tt>spec/credentials.yml</tt>.
   spec/credentials.yml
   
   username: <your username>
