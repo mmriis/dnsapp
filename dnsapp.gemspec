@@ -2,18 +2,18 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dnsapp}
-  s.version = "0.0.1"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Morten M\303\270ller Riis"]
   s.cert_chain = ["/Users/mmr/gem-public_cert.pem"]
-  s.date = %q{2010-12-28}
+  s.date = %q{2011-01-15}
   s.description = %q{Gem to interact with DNSapp.net Managed DNS service}
   s.email = %q{m _AT_ justabout.it}
-  s.extra_rdoc_files = ["lib/dnsapp.rb"]
-  s.files = ["Rakefile", "lib/dnsapp.rb", "Manifest", "dnsapp.gemspec"]
-  s.homepage = %q{https://dnsapp.net}
-  s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Dnsapp"]
+  s.extra_rdoc_files = ["README.rdoc", "lib/dnsapp.rb", "lib/dnsapp/auth_check_parser.rb", "lib/dnsapp/credentials.rb", "lib/dnsapp/domain.rb", "lib/dnsapp/object.rb", "lib/dnsapp/record.rb"]
+  s.files = ["Manifest", "README.rdoc", "Rakefile", "dnsapp.gemspec", "lib/dnsapp.rb", "lib/dnsapp/auth_check_parser.rb", "lib/dnsapp/credentials.rb", "lib/dnsapp/domain.rb", "lib/dnsapp/object.rb", "lib/dnsapp/record.rb", "spec/domain_spec.rb", "spec/record_spec.rb"]
+  s.homepage = %q{http://github.com/mmriis/dnsapp}
+  s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Dnsapp", "--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{dnsapp}
   s.rubygems_version = %q{1.3.7}

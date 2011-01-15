@@ -9,6 +9,7 @@ You will need a DNSApp.net account.
 
 == Installation
 
+  [sudo] gem install httparty
   [sudo] gem install dnsapp
 
 +sudo+ is optional depending on your setup.
@@ -60,3 +61,13 @@ You must create the file <tt>spec/credentials.yml</tt>.
   password: <your password>
 
 The specs all depend on an active internet connection and access to https://dnsapp.net.
+
+== Known issues
+
+On Debian/Ubuntu systems <tt>httparty</tt> sometimes gives a:
+
+  no such file to load net/https
+
+To solve this
+
+  apt-get install libopenssl-ruby

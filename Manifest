@@ -1,3 +1,12 @@
-Rakefile
-lib/dnsapp.rb
 Manifest
+README.rdoc
+Rakefile
+dnsapp.gemspec
+lib/dnsapp.rb
+lib/dnsapp/auth_check_parser.rb
+lib/dnsapp/credentials.rb
+lib/dnsapp/domain.rb
+lib/dnsapp/object.rb
+lib/dnsapp/record.rb
+spec/domain_spec.rb
+spec/record_spec.rb
