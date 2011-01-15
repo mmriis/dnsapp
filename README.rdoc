@@ -1,0 +1,62 @@
+== DNSApp.net
+
+This gem allows easy access to the DNSApp.net API.
+
+You will need a DNSApp.net account.
+
+* https://www.dnsapp.net
+* https://www.dnsapp.net/api
+
+== Installation
+
+  [sudo] gem install dnsapp
+
++sudo+ is optional depending on your setup.
+
+In your Ruby script you can now.
+
+  require 'rubygems'
+  require 'dnsapp'
+  
+  DNSApp::Credentials.username = 'mmr@dnsapp.net'
+  DNSApp::Credentials.password = 'p@ssw0rd'
+  DNSApp::Domain.all
+  => [#<DNSApp::Domain:0x101be6070 @auth_id=nil, @name="dnsapp.net", @handle=nil, @user_id=1, @created_at=Mon Nov 15 12:23:55 UTC 2010, @locked=nil, @authoritative=false, @id=16, @status="done", @updated_at=Fri Nov 19 11:30:00 UTC 2010>]
+  
+  
+== Example
+
+  require 'rubygems'
+  require 'dnsapp'
+
+  DNSApp::Credentials.username = 'mmr@dnsapp.net'
+  DNSApp::Credentials.password = 'p@ssw0rd'
+  
+  DNSApp::Domain.all.each do |domain|
+    records = domain.records.all.length
+    puts "#{domain.name} has #{records} records."
+  end
+  
+  new_domain = DNSApp::Domain.create("example.org")
+  new_domain.records.create :name => '%d', :content => '1.2.3.4', :type => 'A', :ttl => 3600
+  new_domain.records.create :name => '%d', :content => 'mailserver.somewhere.com', :type => 'MX', :ttl => 3600, :prio => "10"
+  
+  new_domain.records.all.last.destroy
+  
+  another_domain = DNSApp::Domain.find("another-domain.com") # could also specify numeric ID
+  another_domain.records.find(240).destroy # 240 is the numeric ID for the record
+  
+  third_domain = DNSApp::Domain.find(42)
+  third_domain.delete
+  
+== Testing / RSpec
+
+In order to run the test suite you have to have a DNSApp.net account (a trial account is not sufficient).
+
+You must create the file ++spec/credentials.yml++.
+  spec/credentials.yml
+  
+  username: <your username>
+  password: <your password>
+
+The specs all depend on an active internet connection and access to https://dnsapp.net.
